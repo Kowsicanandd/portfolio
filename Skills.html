@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skills</title>
+    <link rel="stylesheet" href="Skills.css">
+    <style>
+        body {
+            margin: 0;
+            background: #333;
+            cursor: none; /* Hide default cursor */
+            color: white;
+            font-family: 'Gill Sans', sans-serif;
+            text-align: center;
+        }
+
+        /* Cursor trail effect */
+        .cursor-trail {
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            background: linear-gradient(135deg, rgba(236,0,140,1) 0%, rgba(252,103,103,1) 100%);
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(236,0,140,1), 0 0 20px rgba(252,103,103,1);
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+            opacity: 0.8;
+            transition: transform 0.1s ease-out;
+        }
+
+        .skill {
+            width: 500px;
+            margin: 60px auto;
+            padding: 20px;
+            box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        .back-home {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 24px;
+            font-size: 18px;
+            background: linear-gradient(135deg, rgba(236,0,140,1) 0%, rgba(252,103,103,1) 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .back-home:hover {
+            background: linear-gradient(135deg, rgba(252,103,103,1) 0%, rgba(236,0,140,1) 100%);
+            box-shadow: 0 0 15px rgba(236,0,140,0.8);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="skill">
+        <h1>Technical Skills</h1>
+        <li><h3>HTML</h3>
+            <span class="bar"><span class="html"></span></span>
+        </li>
+        <li><h3>CSS</h3>
+            <span class="bar"><span class="css"></span></span>
+        </li>
+        <li><h3>MySQL</h3>
+            <span class="bar"><span class="MySql"></span></span>
+        </li>
+        <li><h3>Java</h3>
+            <span class="bar"><span class="java"></span></span>
+        </li>
+    </div>
+
+    <!-- Back to Home Button -->
+    <a href="index.html" class="back-home">Back to Home</a>
+
+    <script>
+        document.addEventListener("mousemove", (e) => {
+            let trail = document.createElement("div");
+            trail.classList.add("cursor-trail");
+            document.body.appendChild(trail);
+            
+            let x = e.clientX;
+            let y = e.clientY;
+            
+            trail.style.left = `${x}px`;
+            trail.style.top = `${y}px`;
+            
+            setTimeout(() => {
+                trail.style.opacity = "0";
+                setTimeout(() => trail.remove(), 500);
+            }, 100);
+        });
+    </script>
+
+</body>
+</html>
