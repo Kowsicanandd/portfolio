@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Vertical Timeline</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="project.css">
+  <style>
+      /* Custom Animated Cursor */
+      body {
+          cursor: none; /* Hide default cursor */
+      }
+
+      .cursor-trail {
+          position: absolute;
+          width: 12px;
+          height: 12px;
+          background:linear-gradient(135deg, rgba(236,0,140,1) 0%, rgba(252,103,103,1) 100%);
+          border-radius: 50%;
+          box-shadow: 0 0 15px rgba(236,0,140,0.8);
+          pointer-events: none;
+          transform: translate(-50%, -50%);
+          opacity: 1;
+          transition: transform 0.1s ease-out, opacity 0.2s ease-in-out;
+      }
+
+      /* Back to Home Button */
+      .back-home {
+          display: block;
+          width: 200px;
+          padding: 12px 24px;
+          font-size: 18px;
+          background:linear-gradient(135deg, rgba(236,0,140,1) 0%, rgba(252,103,103,1) 100%);
+          color: white;
+          text-decoration: none;
+          border-radius: 5px;
+          font-weight: bold;
+          text-align: center;
+          transition: 0.3s;
+          border: none;
+          cursor: pointer;
+          box-shadow: 0 0 15px rgba(236,0,140,0.8);
+      }
+
+      .back-home:hover {
+          background:linear-gradient(135deg, rgba(236,0,140,1) 0%, rgba(252,103,103,1) 100%);
+          box-shadow: 0 0 15px rgba(236,0,140,0.8);
+      }
+
+      /* Position Top Back to Home Button */
+      .top-home {
+          position: fixed;
+          top: 10px;
+          left: 50%;
+          transform: translateX(-50%);
+          z-index: 1000;
+      }
+
+      /* Inside Page Back to Home Button */
+      .inside-home {
+          display: block;
+          margin: 40px auto;
+          padding: 12px 24px;
+          font-size: 18px;
+      }
+
+  </style>
+</head>
+<body>
+
+<!-- Back to Home Button at the Top -->
+<a href="index.html" class="back-home top-home" id="topBackHome">Back to Home</a>
+
+<section class="timeline-section">
+    <div class="timeline-items">
+        <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-date"></div>
+            <div class="timeline-content">
+                <h3>Online Voting System</h3>
+                <p> It is about to voting a candidates through online and result 
+                    will be announced immediately</p>
+            </div>
+        </div>
+        <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-date"></div>
+            <div class="timeline-content">
+                <h3>Loan Scope</h3>
+                <p>Predicting Real Time Cibil Impact and Recovery</p>
+            </div>
+        </div>
+        <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-date"></div>
+            <div class="timeline-content">
+                <h3>Home Automation</h3>
+                <p>This project focuses on developing a smart home automation system that enables users to control and monitor electronic appliances remotely using IoT (Internet of Things).</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Back to Home Button Inside the Education Page -->
+</section>
+
+<script>
+    // Function to create cursor trail
+    function createCursorTrail(x, y) {
+        let trail = document.createElement("div");
+        trail.classList.add("cursor-trail");
+        document.body.appendChild(trail);
+        
+        trail.style.left = `${x}px`;
+        trail.style.top = `${y}px`;
+
+        // Smooth fade out
+        setTimeout(() => {
+            trail.style.opacity = "0";
+            setTimeout(() => trail.remove(), 500);
+        }, 100);
+    }
+
+    // Handle mouse movement to create cursor trail
+    document.addEventListener("mousemove", (e) => {
+        createCursorTrail(e.clientX, e.clientY);
+    });
+
+    // Move cursor smoothly to Back to Home buttons
+    function animateCursorToButton(buttonId) {
+        let button = document.getElementById(buttonId);
+        let rect = button.getBoundingClientRect();
+
+        let cursorX = rect.left + rect.width / 2;
+        let cursorY = rect.top + rect.height / 2;
+
+        let trail = document.createElement("div");
+        trail.classList.add("cursor-trail");
+        document.body.appendChild(trail);
+
+        trail.style.transition = "top 0.5s ease-in-out, left 0.5s ease-in-out";
+        trail.style.left = `${cursorX}px`;
+        trail.style.top = `${cursorY}px`;
+
+        setTimeout(() => {
+            trail.style.opacity = "0";
+            setTimeout(() => trail.remove(), 500);
+        }, 500);
+    }
+
+    document.getElementById("topBackHome").addEventListener("mouseover", () => animateCursorToButton("topBackHome"));
+    document.getElementById("insideBackHome").addEventListener("mouseover", () => animateCursorToButton("insideBackHome"));
+
+</script>
+
+</body>
+</html>

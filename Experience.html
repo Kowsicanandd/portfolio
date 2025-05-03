@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Vertical Timeline</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="education.css">
+  <style>
+      /* Certificates Section Styling */
+      .certificates-section {
+          text-align: center;
+          padding: 50px 20px;
+          background-color: #fff3e0; /* Matching Background */
+      }
+
+      .certificates-section h2 {
+          font-size: 24px;
+          color: #333;
+          margin-bottom: 20px;
+      }
+
+      .certificates-container {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 20px;
+      }
+
+      .certificate {
+          width: 300px;
+          transition: transform 0.5s ease-in-out;
+      }
+
+      .certificate img {
+          width: 100%;
+          height: auto;
+          object-fit: cover;
+      }
+
+      /* Back to Home Button */
+      .back-home {
+          display: block;
+          width: 200px;
+          padding: 12px 24px;
+          font-size: 18px;
+          background: #eaa023;
+          color: white;
+          text-decoration: none;
+          border-radius: 5px;
+          font-weight: bold;
+          text-align: center;
+          transition: 0.3s;
+          border: none;
+          cursor: pointer;
+          box-shadow: 0 0 10px #eaa023;
+          margin: 20px auto;
+      }
+
+      .back-home:hover {
+          background: #d58f1e;
+          box-shadow: 0 0 15px #eaa023;
+      }
+  </style>
+</head>
+<body>
+
+<!-- Back to Home Button -->
+<a href="index.html" class="back-home">Back to Home</a>
+
+<section class="timeline-section">
+    <div class="timeline-items">
+        <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-date"></div>
+            <div class="timeline-content">
+                <h3>TrainingTrains</h3>
+                <p>During the Internship training , I learned the overview concepts of Full Stack Web Development</p>
+            </div>
+        </div>
+        <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-date"></div>
+            <div class="timeline-content">
+                <h3>Spencersoft Technology</h3>
+                <p>During this Inplant Training I learned Java programming</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Certificates Section -->
+    <section class="certificates-section">
+        <h2>Certification</h2>
+        <div class="certificates-container">
+            <div class="certificate">
+                <img src="certificate/java foundation certification_page-0001.jpg" alt="Certificate 1">
+            </div>
+            <div class="certificate">
+                <img src="certificate/Mysql Certification Coursera_page-0001.jpg" alt="Certificate 2">
+            </div>
+        </div>
+    </section>
+</section>
+
+</body>
+</html>
